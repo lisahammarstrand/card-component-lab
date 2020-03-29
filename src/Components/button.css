@@ -1,0 +1,39 @@
+button {
+  position: absolute;
+  width: 311px;
+  height: 50px;
+  left: 50px;
+  top: 407px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  font-family: Roboto;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 35px;
+display: block;
+align-items: center;
+text-align: center;
+color: #000000;
+}
+
+.lemon-button {
+  background: #FCED84;
+}
+
+.rocket-button {
+  background: #0B0C11;
+  color: #FFD600;
+}
+
+.doggy-button {
+  background: #FFFFFF;
+}
+
+
+
+
+
