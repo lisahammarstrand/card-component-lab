@@ -1,28 +1,54 @@
-import React from "react"
+import React, { useState } from "react"
 import "./card.css"
 
-export const Card = (props) => {
-  const { heading, emoji, subtitle, className } = props
+// Passing and destructuring props
+export const Card = ({
+  heading,
+  headingColor,
+  emoji,
+  primary,
+  secondary,
+  subtitle,
+  subtitleColor,
+  buttonColor,
+  buttonText,
+  buttonTextColor
+}) => {
+  // State takes care of which version of the card to render
+  const [clicked, setClicked] = useState(false)
 
-  return (
-    <section className="card-container">
-      <header className="top-section">
-        <div className={className}>
-          <h1 className="heading">{heading}</h1>
+  // If the card is clicked render this
+  if (clicked)
+
+    return (
+      <article className="clicked-card">
+        <header className="top-section" style={{ background: primary }}>
+          <h1 style={{ color: headingColor }}>{heading}</h1>
+        </header>
+        <section className="light-part" style={{ background: secondary }}>
           <span role="img" aria-label="Emoji" className="emoji">{emoji}</span>
-        </div>
-      </header>
-    </section>
+        </section>
+      </article>
+    )
+
+  // If card is not clicked render this
+  return (
+    <article className="card">
+      <section className="top-section" style={{ background: primary }}>
+        <h1 style={{ color: headingColor }}>{heading}</h1>
+        <span role="img" aria-label="Emoji" className="emoji">
+          {emoji}
+        </span>
+      </section>
+      <section className="light-part" style={{ background: secondary }}>
+        <h2 style={{ color: subtitleColor }}>{subtitle}</h2>
+        <button
+          style={{ background: buttonColor, color: buttonTextColor }}
+          onClick={() => setClicked(!clicked)}>
+          {buttonText}
+        </button>
+      </section>
+    </article>
   )
 }
 
-export const LightPart = (props) => {
-  const { subtitle, className } = props
-  return (
-    <div className="light-part">
-      <div className={className}>
-        <p className="subtitle">{subtitle}</p>
-      </div>
-    </div>
-  )
-}

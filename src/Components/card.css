@@ -1,101 +1,97 @@
-.card-container {
-  position: absolute;
+.card {
   width: 371px;
   height: 372px;
-  left: 20px;
-  top: 115px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+  margin: 20px;
   border-radius: 8px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  position: relative;
 }
 
 .top-section {   
-  position: absolute;
-  width: 371px;
+  box-sizing: border-box;
   height: 126px;
-  left: 0px;
-  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 30px 26px 30px;
 }
 
-.heading {
-  position: absolute;
-  width: 215px;
-  height: 70px;
-  left: 30px;
-  top: 30px;
-  margin: 0px;
-  
+h1 {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 70px;
-  line-height: 82px;
+  line-height: 70px;
+  margin: 0px;
 }
 
 .emoji {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  right: 20px;
-  top: 30px;
-}
-
-.lemon-card-top {
-  height: 126px;
-  background: #8CFFBA;
-  color: #166F39;
-}
-
-.rocket-card-top {
-  height: 126px;
-  background: #A6CFE2;
-  color: #0B0C11;
-}
-
-.doggy-card-top {
-  height: 126px;
-  background: #EEB200;
-  color: #502F7E;
+  font-size: 70px;
+  line-height: 70px;
 }
 
 .light-part {
-  position: absolute;
-  width: 371px;
+  box-sizing: border-box;
   height: 246px;
-  left: 20px;
-  top: 241px;
-  border-radius: 0px 0px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
 }
 
-.subtitle {
-  position: absolute;
-  width: 311px;
-  height: 90px;
-  left: 30px;
-  top: 30px;
-  margin: 0px;
-
+h2 {
   font-family: 'Lora', serif;
   font-style: italic;
   font-weight: normal;
   font-size: 36px;
   line-height: 47px;
   text-align: center;
+  margin: 0px;
 }
 
-.lemon-light-part {
-  height: 246px;
-  background: #CFFFE2;
-  color: #000000;
+button {
+  height: 50px;
+  width: 311px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 35px;
+  cursor: pointer;
 }
 
-.rocket-light-part {
-  height: 246px;
-  background: #C2DCE9;
-  color: #000000;
+/* Styling for clicked card */
+.clicked-card .top-section,
+.clicked-card .light-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  transition: 1s ease;
 }
 
-.doggy-light-part {
-  height: 246px;
-  background: #FFE086;
-  color: #502F7E;
+/* Difference on top and bottom part */
+.clicked-card .top-section {
+  top: 0;
 }
+
+.clicked-card .light-part {
+  top: 50%;
+}
+
+/* hover effect on both parts*/
+.clicked-card .light-part:hover,
+.clicked-card .top-section:hover {
+  transition: 1s;
+  height: 100%;
+  z-index: 99;
+  top: 0;
+}
+
+
